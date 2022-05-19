@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+    margin-top: 1%;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .mat-form-field {
+    margin-top: 1%;
+    font-size: 14px;
+    width: 100%;
+  }
+  .distribucionHeader{
+    flex: 1 1 auto;
+  }

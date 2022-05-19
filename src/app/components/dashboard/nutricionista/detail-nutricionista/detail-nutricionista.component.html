@@ -1,0 +1,87 @@
+<!-- <div class="headerSeccion" *ngFor="let nutricionista of selectNutricionista">
+  <mat-toolbar>
+    <span>Nutricionista: {{nutricionista.nombre}} {{nutricionista.apellidos}}</span>
+    <div class="botonAdd"></div>
+  </mat-toolbar>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Id Nutricionista</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Fecha Nacimiento</th>
+        <th>Fecha Alta</th>
+        <th>Activo</th>
+        <th>DNI</th>
+        <th>Telefono</th>
+        <th>Sueldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{nutricionista.idNutricionista}}</td>
+        <td>{{nutricionista.nombre}}</td>
+        <td>{{nutricionista.apellidos}}</td>
+        <td>{{nutricionista.fechaNacimiento}}</td>  
+        <td>{{nutricionista.fechaAlta}}</td>
+        <td>{{nutricionista.activo}}</td> 
+        <td>{{nutricionista.dni}}</td> 
+        <td>{{nutricionista.telefono}}</td>
+        <td>{{nutricionista.sueldo}}</td>
+      </tr>
+    </tbody>
+  </table>
+   <div class="buttonContainer">
+        <button mat-raised-button routerLink="/dashboard/nutricionistas" color="primary">Volver</button>
+      </div>
+</div>  -->
+<div class="headerSeccion">
+  <mat-toolbar>
+    <span>Nutricionistas</span>
+    <div class="distribucionHeader"></div>
+    <mat-icon matSuffix color="accent" class="icon" routerLink="/dashboard/add-nutricionista" matTooltip="Añadir nutricionista">add_circle</mat-icon>   
+  </mat-toolbar>
+    <table mat-table [dataSource]="dataSource"> 
+      <ng-container matColumnDef="idNutricionista">
+        <th mat-header-cell *matHeaderCellDef> Id Nutricionista</th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.idNutricionista}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef > Nombre </th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.nombre}} </td>
+      </ng-container>
+      <ng-container matColumnDef="apellidos">
+        <th mat-header-cell *matHeaderCellDef > Apellidos </th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.apellidos}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fechaNacimiento">
+        <th mat-header-cell *matHeaderCellDef > Fecha Nacimiento</th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.fechaNacimiento}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fechaAlta">
+        <th mat-header-cell *matHeaderCellDef >Fecha Alta</th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.fechaAlta}} </td>
+      </ng-container>
+      <ng-container matColumnDef="activo">
+        <th mat-header-cell *matHeaderCellDef >Activo</th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.activo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="dni">
+        <th mat-header-cell *matHeaderCellDef >DNI</th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.dni}} </td>
+      </ng-container>
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.telefono}} </td>
+      </ng-container>
+      <ng-container matColumnDef="sueldo">
+        <th mat-header-cell *matHeaderCellDef>Sueldo</th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.sueldo}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="buttonContainer">
+      <button mat-raised-button routerLink="/dashboard/nutricionistas" color="primary">Volver</button>
+    </div>
+  </div>

@@ -1,0 +1,59 @@
+<div class = "headerSeccion">
+  <mat-toolbar>
+   <span>Inicio</span>
+ </mat-toolbar> 
+ <div *ngFor="let f of facturacionMensual">
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Nutricionista</th>
+        <th>Minutos Trabajados</th>
+        <th>Facuración Bruta</th>
+        <th>Facturación Bruta/Hora</th>
+        <th>Facuración Neta</th>
+        <th>Facuración Neta/Hora</th>
+        <th>Numero de consultas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{f.nutricionista.idNutricionista}}</td>
+        <td>{{f.minutos_trabajados}}</td>
+        <td>{{f.facturacion_bruta}}</td>
+        <td>{{f.facturacion_bruta_hora}}</td>  
+        <td>{{f.facturacion_neta}}</td>
+        <td>{{f.facturacion_neta_hora}}</td> 
+        <td>{{f.numero_consultas}}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h1>Facturación Diaria</h1>
+<div class="headerSeccion" *ngFor="let fac of facturacionDiaria">
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Nutricionista</th>
+        <th>Minutos Trabajados</th>
+        <th>Facuración Bruta</th>
+        <th>Facturación Bruta/Hora</th>
+        <th>Facuración Neta</th>
+        <th>Facuración Neta/Hora</th>
+        <th>Numero de consultas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{fac.nutricionista.idNutricionista}}</td>
+        <td>{{fac.minutos_trabajados}}</td>
+        <td>{{fac.facturacion_bruta}}</td>
+        <td>{{fac.facturacion_bruta_hora}}</td>  
+        <td>{{fac.facturacion_neta}}</td>
+        <td>{{fac.facturacion_neta_hora}}</td> 
+        <td>{{fac.numero_consultas}}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

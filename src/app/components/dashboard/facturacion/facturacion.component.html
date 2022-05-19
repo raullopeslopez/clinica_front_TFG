@@ -1,0 +1,110 @@
+<br> <!-- SEGUNDA CONSULTA -->
+<mat-toolbar>
+  <div class="botonAdd">   
+  </div>   
+</mat-toolbar>
+<div class="headerSeccion" *ngFor="let fac of facturacionGlobal">
+  <mat-toolbar>
+    <div class="botonAdd">
+      <button mat-raised-button color="primary" routerLink="/dashboard/facturacion-nutricionista-mensual">Facturación Global Nutricionista</button>    
+    </div>   
+  </mat-toolbar>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Nutricionista</th>
+        <th>Minutos Trabajados</th>
+        <th>Facuración Bruta</th>
+        <th>Facturación Bruta/Hora</th>
+        <th>Facuración Neta</th>
+        <th>Facuración Neta/Hora</th>
+        <th>Numero de consultas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{fac.nutricionista.idNutricionista}}</td>
+        <td>{{fac.minutos_trabajados}}</td>
+        <td>{{fac.facturacion_bruta}}</td>
+        <td>{{fac.facturacion_bruta_hora}}</td>  
+        <td>{{fac.facturacion_neta}}</td>
+        <td>{{fac.facturacion_neta_hora}}</td> 
+        <td>{{fac.numero_consultas}}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br> <!-- TERCERA CONSULTA -->
+<mat-toolbar>
+  <div class="botonAdd">   
+  </div>   
+</mat-toolbar>
+<div class="headerSeccion" *ngFor="let fac of facturacionNutricionista">
+  <mat-toolbar>
+    <div class="botonAdd">
+      <button mat-raised-button color="primary" routerLink="/dashboard/facturacion-nutricionista-mensual">Facturación Nutricionista</button>    
+    </div>   
+  </mat-toolbar>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Nutricionista</th>
+        <th>Minutos Trabajados</th>
+        <th>Facuración Bruta</th>
+        <th>Facturación Bruta/Hora</th>
+        <th>Facuración Neta</th>
+        <th>Facuración Neta/Hora</th>
+        <th>Numero de consultas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{fac.nutricionista.idNutricionista}}</td>
+        <td>{{fac.minutos_trabajados}}</td>
+        <td>{{fac.facturacion_bruta}}</td>
+        <td>{{fac.facturacion_bruta_hora}}</td>  
+        <td>{{fac.facturacion_neta}}</td>
+        <td>{{fac.facturacion_neta_hora}}</td> 
+        <td>{{fac.numero_consultas}}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br> <!-- CUARTA CONSULTA -->
+<mat-toolbar>
+  <div class="botonAdd">   
+  </div>   
+</mat-toolbar>
+<div class="headerSeccion" *ngFor="let fac of facturacionDiaria">
+  <mat-toolbar>
+    <div class="botonAdd">
+      <button mat-raised-button color="primary" routerLink="/dashboard/facturacion-nutricionista-mensual">Facturación Diaria</button>    
+    </div>   
+  </mat-toolbar>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Nutricionista</th>
+        <th>Minutos Trabajados</th>
+        <th>Facuración Bruta</th>
+        <th>Facturación Bruta/Hora</th>
+        <th>Facuración Neta</th>
+        <th>Facuración Neta/Hora</th>
+        <th>Numero de consultas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{fac.nutricionista.idNutricionista}}</td>
+        <td>{{fac.minutos_trabajados}}</td>
+        <td>{{fac.facturacion_bruta}}</td>
+        <td>{{fac.facturacion_bruta_hora}}</td>  
+        <td>{{fac.facturacion_neta}}</td>
+        <td>{{fac.facturacion_neta_hora}}</td> 
+        <td>{{fac.numero_consultas}}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

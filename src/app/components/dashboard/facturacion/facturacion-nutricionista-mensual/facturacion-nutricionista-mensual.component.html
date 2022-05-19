@@ -1,0 +1,26 @@
+<div class="headerSeccion" *ngFor="let factura of listFacturas">
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Nutricionista</th>
+        <th>Minutos Trabajados</th>
+        <th>Facuración Bruta</th>
+        <th>Facturación Bruta/Hora</th>
+        <th>Facuración Neta</th>
+        <th>Facuración Neta/Hora</th>
+        <th>Numero de consultas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{factura.nutricionista.idNutricionista}}</td>
+        <td>{{factura.minutos_trabajados}}</td>
+        <td>{{factura.facturacion_bruta}}</td>
+        <td>{{factura.facturacion_bruta_hora}}</td>  
+        <td>{{factura.facturacion_neta}}</td>
+        <td>{{factura.facturacion_neta_hora}}</td> 
+        <td>{{factura.numero_consultas}}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div>

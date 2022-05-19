@@ -1,0 +1,43 @@
+<div>
+    <mat-toolbar>
+      <span>Añadir Factura</span>
+    </mat-toolbar>
+    <mat-card class="card">
+        <form [formGroup]="form" >
+          <mat-grid-list cols="4" rowHeight="2:1">
+              <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                <mat-form-field appearance="fill" class="ancho">
+                  <mat-label>Factura</mat-label>
+                  <input matInput autocomplete="off" formControlName="factura">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="3" [rowspan]="5">
+                <img src="./assets/img/login_image.png" alt="imagen-perfil-nutricionista">
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                <mat-form-field appearance="fill" class="ancho">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput autocomplete="off" formControlName="nombre">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho">
+                  <mat-label>Apellido</mat-label>
+                  <input matInput autocomplete="off" formControlName="apellido">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho">
+                  <mat-label>Edad</mat-label>
+                  <input matInput autocomplete="off" formControlName="edad">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button type = "submit" [disabled] = "form.invalid" class = "aceptarbtn" mat-raised-button color="primary">Aceptar</button>
+                <button mat-raised-button >Volver</button>
+              </mat-grid-tile>            
+            </mat-grid-list>
+        </form>
+    </mat-card>
+  </div>
+  

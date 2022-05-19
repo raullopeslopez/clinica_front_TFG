@@ -1,0 +1,44 @@
+table {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    width: 100%;
+    margin-top: 2%;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 0;
+    border-color: grey;
+    background: inherit;
+  }
+  
+  .thead {
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+    padding-left: 24px;
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+  }
+  
+  th {
+    background: inherit;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    color: rgba(0,0,0,.54);
+    padding: 1.8%;
+  }
+  
+  td {
+    display: table-cell;
+    text-align: center;
+    padding: 2%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    border-spacing: 0;
+    color: rgba(0,0,0,.87);
+    font-size: 14px;
+    border-bottom-color: rgba(0,0,0,.12);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+  
+  
+    

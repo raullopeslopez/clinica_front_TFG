@@ -1,0 +1,82 @@
+<div class="headerSeccion">
+  <mat-toolbar>
+    <span>Nutricionistas</span>
+  </mat-toolbar>
+  <div class="formContainer">
+    <form class="form" [formGroup]="form" (ngSubmit)="postNutricionista()">
+      <mat-form-field class="form-full-width" appearance="fill" color="accent">
+        <mat-label>Id Nutricionista</mat-label>
+        <input matInput type="number" formControlName="idNutricionista">
+      </mat-form-field>
+      <table class="form-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+              <mat-label>Nombre</mat-label>
+              <input matInput type="text" formControlName="nombre">
+              <mat-icon matSuffix color="primary" class="icon">person</mat-icon>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+              <mat-label>Apellidos</mat-label>
+              <input matInput type="text" formControlName="apellidos">
+              <mat-icon matSuffix color="primary" class="icon">person</mat-icon>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+              <mat-label>Fecha Nacimiento</mat-label>
+              <input matInput type="date" formControlName="fechaNacimiento">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+              <mat-label>Fecha Alta</mat-label>
+              <input matInput type="date" formControlName="fechaAlta">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+              <mat-label>Alta</mat-label>
+              <input matInput type="number" placeholder="1 - Si | 0 - No" formControlName="activo">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+              <mat-label>DNI</mat-label>
+              <input matInput placeholder="1234568A" formControlName="dni">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+              <mat-label>Teléfono</mat-label>
+              <span matPrefix class="preffix">(+34)&nbsp;</span>
+              <input type="tel" matInput placeholder="123456789" formControlName="telefono">
+              <mat-icon matSuffix color="primary" class="icon">phone</mat-icon>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+              <mat-label>Salario</mat-label>
+              <input matInput formControlName="sueldo">
+              <mat-icon matSuffix color="primary" class="icon">euro_symbol</mat-icon>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <div class="buttonContainer">
+        <button type="submit" [disabled]="form.invalid" class="aceptarbtn" mat-raised-button
+          color="primary">Aceptar</button>
+        <button mat-raised-button routerLink="/dashboard/nutricionistas">Volver</button>
+      </div>
+    </form>
+  </div>
+
+</div>

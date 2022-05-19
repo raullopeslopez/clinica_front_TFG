@@ -1,0 +1,53 @@
+<div class="headerSeccion">
+  <mat-toolbar>
+    <span>Nutricionistas</span>
+    <div class="distribucionHeader"></div> 
+    <mat-icon matSuffix color="accent" routerLink="/dashboard/add-nutricionista" matTooltip="Añadir nutricionista" class="pointer">add_circle</mat-icon>   
+  </mat-toolbar>
+
+  <div *ngIf="listNutricionistas.length > 0">
+    <table mat-table [dataSource]="listNutricionistas" matSort> 
+      <!-- Id_ Nutricionista Column -->
+      <ng-container matColumnDef="idNutricionista">
+        <th mat-header-cell *matHeaderCellDef> Id Nutricionista</th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.idNutricionista}} </td>
+      </ng-container>
+
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef > Nombre </th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.nombre}} </td>
+      </ng-container>
+
+      <!-- Apellidos Column -->
+      <ng-container matColumnDef="apellidos">
+        <th mat-header-cell *matHeaderCellDef > Apellidos </th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.apellidos}} </td>
+      </ng-container>
+
+      <!-- Telefono Column -->
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let nutricionista"> {{nutricionista.telefono}} </td>
+      </ng-container>
+      
+      <!-- Columnas Opciones -->
+      <ng-container matColumnDef="opciones">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let nutricionista" style="text-align: center;">
+          <a class="pointer" (click)="getNutricionista(nutricionista.idNutricionista)"  matTooltip="Ver detalle"> 
+            <mat-icon >search</mat-icon>
+          </a>
+          <a class="pointer" (click)="editNutricionista(nutricionista.idNutricionista)" matTooltip="Editar información"> 
+            <mat-icon>edit</mat-icon>
+          </a>
+          <a class="pointer" (click)="eliminarNutricionista(nutricionista.idNutricionista)" matTooltip="Eliminar nutricionista">
+            <mat-icon >delete</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <h2 *ngIf="listNutricionistas.length == 0">No hay nutricionistas</h2>
