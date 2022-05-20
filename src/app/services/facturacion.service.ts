@@ -19,8 +19,14 @@ const httpOptions = {
 export class FacturacionService {
 
   listFacturas: FacturacionNutricionista[] = [];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
+
+  getFacturacion() : Observable<FacturacionNutricionista> {
+    const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.GET_FACTURACION}`;
+    return this.http.get<FacturacionNutricionista>(url, httpOptions);
+    
+  }
   getFacturacionMensual() : Observable<FacturacionNutricionista> {
     const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.GET_FACTURACION_MENSUAL}`;
     return this.http.get<FacturacionNutricionista>(url, httpOptions);
@@ -29,6 +35,11 @@ export class FacturacionService {
   getFacturacionDiaria() : Observable<FacturacionNutricionista> {
     const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.GET_FACTURACION_DIARIA}`;
     return this.http.get<FacturacionNutricionista>(url, httpOptions);
+  }
+
+  getFacturacionNutricionista(idNutricionista: number) {
+    const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.GET_FACTURACION_NUTRICIONISTA}/${idNutricionista}`;
+    return this.http.get(url, httpOptions);
   }
   
 }

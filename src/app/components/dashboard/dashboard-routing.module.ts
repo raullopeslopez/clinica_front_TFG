@@ -25,7 +25,7 @@ const routes: Routes = [
     { path:'edit-nutricionista/:idNutricionista', component:EditNutricionistaComponent},
     { path:'add-consulta', component:AddConsultaComponent},
     { path:'add-factura', component:AddFacturaComponent},
-    { path:'facturacion-nutricionista-mensual', component:FacturacionNutricionistaMensualComponent},
+    { path:'facturacion-nutricionista-mensual/:idNutricionista', component:FacturacionNutricionistaMensualComponent},
   ]
  }
   

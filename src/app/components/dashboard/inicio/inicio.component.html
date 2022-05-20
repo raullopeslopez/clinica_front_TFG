@@ -1,59 +1,75 @@
-<div class = "headerSeccion">
+<div class="headerSeccion">
   <mat-toolbar>
-   <span>Inicio</span>
- </mat-toolbar> 
- <div *ngFor="let f of facturacionMensual">
-  <table class="table">
-    <thead class="thead">
-      <tr>
-        <th>Nutricionista</th>
-        <th>Minutos Trabajados</th>
-        <th>Facuración Bruta</th>
-        <th>Facturación Bruta/Hora</th>
-        <th>Facuración Neta</th>
-        <th>Facuración Neta/Hora</th>
-        <th>Numero de consultas</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{f.nutricionista.idNutricionista}}</td>
-        <td>{{f.minutos_trabajados}}</td>
-        <td>{{f.facturacion_bruta}}</td>
-        <td>{{f.facturacion_bruta_hora}}</td>  
-        <td>{{f.facturacion_neta}}</td>
-        <td>{{f.facturacion_neta_hora}}</td> 
-        <td>{{f.numero_consultas}}</td> 
-      </tr>
-    </tbody>
-  </table>
-</div>
-<h1>Facturación Diaria</h1>
-<div class="headerSeccion" *ngFor="let fac of facturacionDiaria">
-  <table class="table">
-    <thead class="thead">
-      <tr>
-        <th>Nutricionista</th>
-        <th>Minutos Trabajados</th>
-        <th>Facuración Bruta</th>
-        <th>Facturación Bruta/Hora</th>
-        <th>Facuración Neta</th>
-        <th>Facuración Neta/Hora</th>
-        <th>Numero de consultas</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{fac.nutricionista.idNutricionista}}</td>
-        <td>{{fac.minutos_trabajados}}</td>
-        <td>{{fac.facturacion_bruta}}</td>
-        <td>{{fac.facturacion_bruta_hora}}</td>  
-        <td>{{fac.facturacion_neta}}</td>
-        <td>{{fac.facturacion_neta_hora}}</td> 
-        <td>{{fac.numero_consultas}}</td> 
-      </tr>
-    </tbody>
+    <span>Facturación Mensual</span>
+  </mat-toolbar>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="nutricionista">
+      <th mat-header-cell *matHeaderCellDef> Nutricionista</th>
+      <td mat-cell *matCellDef="let facMensual"> {{facMensual.nutricionista.idNutricionista}} </td>
+    </ng-container>
+    <ng-container matColumnDef="minutos_trabajados">
+      <th mat-header-cell *matHeaderCellDef> Minutos Trabajados </th>
+      <td mat-cell *matCellDef="let facMensual"> {{facMensual.minutos_trabajados}} </td>
+    </ng-container>
+    <ng-container matColumnDef="facturacion_bruta">
+      <th mat-header-cell *matHeaderCellDef> Facuración Bruta </th>
+      <td mat-cell *matCellDef="let facMensual"> {{facMensual.facturacion_bruta}} </td>
+    </ng-container>
+    <ng-container matColumnDef="facturacion_bruta_hora">
+      <th mat-header-cell *matHeaderCellDef>Facturación Bruta/Hora</th>
+      <td mat-cell *matCellDef="let facMensual"> {{facMensual.facturacion_bruta_hora}} </td>
+    </ng-container>
+    <ng-container matColumnDef="facturacion_neta">
+      <th mat-header-cell *matHeaderCellDef>Facuración Neta</th>
+      <td mat-cell *matCellDef="let facMensual"> {{facMensual.facturacion_neta}} </td>
+    </ng-container>
+    <ng-container matColumnDef="facturacion_neta_hora">
+      <th mat-header-cell *matHeaderCellDef>Facuración Neta/Hora</th>
+      <td mat-cell *matCellDef="let facMensual"> {{facMensual.facturacion_neta_hora}} </td>
+    </ng-container>
+    <ng-container matColumnDef="numero_consultas">
+      <th mat-header-cell *matHeaderCellDef>Número de consultas</th>
+      <td mat-cell *matCellDef="let facMensual"> {{facMensual.numero_consultas}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
 
-
+<div class="headerSeccion">
+  <mat-toolbar>
+    <span>Facturación Diaria</span>
+  </mat-toolbar>
+  <table mat-table [dataSource]="dataSourceDiario">
+    <ng-container matColumnDef="nutricionista">
+      <th mat-header-cell *matHeaderCellDef> Nutricionista</th>
+      <td mat-cell *matCellDef="let facDiaria"> {{facDiaria.nutricionista.idNutricionista}} </td>
+    </ng-container>
+    <ng-container matColumnDef="minutos_trabajados">
+      <th mat-header-cell *matHeaderCellDef> Minutos Trabajados </th>
+      <td mat-cell *matCellDef="let facDiaria"> {{facDiaria.minutos_trabajados}} </td>
+    </ng-container>
+    <ng-container matColumnDef="facturacion_bruta">
+      <th mat-header-cell *matHeaderCellDef> Facuración Bruta </th>
+      <td mat-cell *matCellDef="let facDiaria"> {{facDiaria.facturacion_bruta}} </td>
+    </ng-container>
+    <ng-container matColumnDef="facturacion_bruta_hora">
+      <th mat-header-cell *matHeaderCellDef>Facturación Bruta/Hora</th>
+      <td mat-cell *matCellDef="let facDiaria"> {{facDiaria.facturacion_bruta_hora}} </td>
+    </ng-container>
+    <ng-container matColumnDef="facturacion_neta">
+      <th mat-header-cell *matHeaderCellDef>Facuración Neta</th>
+      <td mat-cell *matCellDef="let facDiaria"> {{facDiaria.facturacion_neta}} </td>
+    </ng-container>
+    <ng-container matColumnDef="facturacion_neta_hora">
+      <th mat-header-cell *matHeaderCellDef>Facuración Neta/Hora</th>
+      <td mat-cell *matCellDef="let facDiaria"> {{facDiaria.facturacion_neta_hora}} </td>
+    </ng-container>
+    <ng-container matColumnDef="numero_consultas">
+      <th mat-header-cell *matHeaderCellDef>Número de consultas</th>
+      <td mat-cell *matCellDef="let facDiaria"> {{facDiaria.numero_consultas}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
