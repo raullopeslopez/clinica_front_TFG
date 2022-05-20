@@ -1,0 +1,72 @@
+<div class="headerSeccion">
+
+    <div *ngIf="listConsultas.length > 0">
+
+        <table mat-table [dataSource]="dataSource" matSort>
+            <!-- Usuario Column -->
+            <ng-container matColumnDef="idConsulta">
+                <th mat-header-cell *matHeaderCellDef> Consulta </th>
+                <td mat-cell *matCellDef="let element"> {{element.idConsulta}} </td>
+            </ng-container>
+
+            <!-- Nombre Column -->
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+                <td mat-cell *matCellDef="let element"> {{element.fechaConsulta}} </td>
+            </ng-container>
+
+            <!-- Apellido Column -->
+            <ng-container matColumnDef="duracion">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Duracion </th>
+                <td mat-cell *matCellDef="let element"> {{element.duracion}} </td>
+            </ng-container>
+
+            <!-- Edad Column -->
+            <ng-container matColumnDef="precio">
+                <th mat-header-cell *matHeaderCellDef>Precio </th>
+                <td mat-cell *matCellDef="let element"> {{element.precio}} </td>
+            </ng-container>
+
+            <!-- Edad Column -->
+            <ng-container matColumnDef="porcentajeVariable">
+                <th mat-header-cell *matHeaderCellDef>Variable </th>
+                <td mat-cell *matCellDef="let element"> {{element.porcentajeVariable}} </td>
+            </ng-container>
+
+            <!-- Sexo Column -->
+            <ng-container matColumnDef="cliente">
+                <th mat-header-cell *matHeaderCellDef>Nombre Cliente </th>
+                <td mat-cell *matCellDef="let element"> {{element.cliente.nombre}} </td>
+            </ng-container>
+
+            <!-- Sexo Column -->
+            <ng-container matColumnDef="clienteapellidos">
+                <th mat-header-cell *matHeaderCellDef>Apellidos Cliente </th>
+                <td mat-cell *matCellDef="let element"> {{element.cliente.apellidos}} </td>
+            </ng-container>
+
+            <!-- Sexo Column -->
+            <ng-container matColumnDef="fechaalta">
+                <th mat-header-cell *matHeaderCellDef>Fecha Alta Cliente </th>
+                <td mat-cell *matCellDef="let element"> {{element.cliente.fechaAlta}} </td>
+            </ng-container>
+
+            <!-- Sexo Column -->
+            <ng-container matColumnDef="bonosRestantes">
+                <th mat-header-cell *matHeaderCellDef>Bonos Restantes </th>
+                <td mat-cell *matCellDef="let element"> {{element.bono.consultasRestantes}} </td>
+            </ng-container>
+
+            <!-- Sexo Column -->
+            <ng-container matColumnDef="cantidadConsultas">
+                <th mat-header-cell *matHeaderCellDef>Bonos Restantes </th>
+                <td mat-cell *matCellDef="let element"> {{element.bono.cantidadConsultas}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <h2 *ngIf="listConsultas.length == 0">No hay Consultas</h2>
+</div>

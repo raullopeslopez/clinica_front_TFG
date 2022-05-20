@@ -3,43 +3,58 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Consulta } from 'src/app/interfaces/consulta';
+import { Consulta } from 'src/app/models/consulta';
 import { ConsultaService } from 'src/app/services/consulta.service';
 
 @Component({
   selector: 'app-consultas',
   templateUrl: './consultas.component.html',
-  styleUrls: ['./consultas.component.css']
+  styleUrls: ['./consultas.component.css'],
 })
 export class ConsultasComponent implements OnInit {
-
   listConsultas: Consulta[] = [];
 
-  displayedColumns: string[] = ['consulta','nombre', 'apellido', 'edad', 'sexo', 'opciones'];
+  displayedColumns: string[] = [
+    'idConsulta',
+    'fecha',
+    'duracion',
+    'precio',
+    'cliente',
+    'nutricionista',
+    'opciones',
+  ];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _consultaService: ConsultaService, private _snackBar: MatSnackBar) { }
+  constructor(
+    private _consultaService: ConsultaService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.cargarConsultas();
   }
 
   cargarConsultas() {
-    this.listConsultas = this._consultaService.getConsulta();
-    this.dataSource = new MatTableDataSource(this.listConsultas);
-    console.log(this.dataSource)
+    this._consultaService.getAllConsultas().subscribe((response) => {
+      this.listConsultas = response;
+      this.dataSource = new MatTableDataSource(response);
+      this.dataSource.paginator = this.paginator;
+    });
   }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+
+  // ngAfterViewInit() {
+  //   this.dataSource.paginator = this.paginator;
+  //   this.dataSource.sort = this.sort;
+  // }
+
+  applyFilter($event: any) {
+    this.dataSource.filter = $event.target.value;
   }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+
+  /*
   eliminarConsulta(index: number) {
    console.log(index);
 
@@ -51,5 +66,17 @@ export class ConsultasComponent implements OnInit {
     horizontalPosition: 'center',
     verticalPosition: 'bottom'
   })
+  } */
+
+  eliminarNutricionista(idConsulta: number) {
+    this._consultaService.deleteConsulta(idConsulta).subscribe({
+      next: (response) => {
+        this.cargarConsultas();
+      },
+      error: (err) => {
+        if (err.status === 200) this.cargarConsultas();
+        console.log('ERROR: ', err);
+      },
+    });
   }
 }
