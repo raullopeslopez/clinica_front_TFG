@@ -68,7 +68,7 @@ export class ConsultasComponent implements OnInit {
   })
   } */
 
-  eliminarNutricionista(idConsulta: number) {
+  eliminarConsulta(idConsulta: number) {
     this._consultaService.deleteConsulta(idConsulta).subscribe({
       next: (response) => {
         this.cargarConsultas();

@@ -62,8 +62,7 @@
             [routerLink]="['/edit-consulta', {id: element.idConsulta}]">
             <mat-icon>edit</mat-icon>
           </a>
-          <a class="pointer" (click)="eliminarNutricionista(element.nutricionista.idNutricionista)"
-            matTooltip="Eliminar consulta">
+          <a class="pointer" (click)="eliminarConsulta(element.idConsulta)" matTooltip="Eliminar consulta">
             <mat-icon>delete</mat-icon>
           </a>
         </td>

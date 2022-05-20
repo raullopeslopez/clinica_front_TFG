@@ -46,7 +46,8 @@ export class ConsultaService {
   }
 
   deleteConsulta(idConsulta: number): Observable<Object> {
-    const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.PUT_CONSULTA}/${idConsulta}`;
+    const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.REMOVE_CONSULTA}/${idConsulta}`;
+    console.log(url);
     return this.http.delete(url, { responseType: 'text' });
   }
 
