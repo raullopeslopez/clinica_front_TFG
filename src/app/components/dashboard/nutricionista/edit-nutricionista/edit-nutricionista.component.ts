@@ -21,7 +21,7 @@ export class EditNutricionistaComponent implements OnInit {
     private nutricionistaService: NutricionistaService,
     private fb: FormBuilder,
     private snackBar: MatSnackBar
-  ) {}
+    ){}
 
   ngOnInit(): void {
     this.idNutricionista = this.route.snapshot.params ['idNutricionista'];

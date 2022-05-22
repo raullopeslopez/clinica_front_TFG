@@ -16,7 +16,9 @@ export class NutricionistaComponent implements OnInit {
   displayedColumns: string[] = ['idNutricionista','nombre', 'apellidos', 'telefono',  'opciones'];
   
 
-  constructor(private nutricionistaService: NutricionistaService, private router: Router, private _snackBar: MatSnackBar) { }
+  constructor(private nutricionistaService: NutricionistaService,
+              private router: Router, 
+              private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.cargarNutricionistas();
@@ -45,6 +47,11 @@ export class NutricionistaComponent implements OnInit {
         if (err.status === 200)
         this.cargarNutricionistas()
         console.log ('ERROR: ', err)}
+    })
+    this.snackBar.open('Nutricionista eliminado con éxito', '', {
+      duration: 1500,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
     })
   }
 }
