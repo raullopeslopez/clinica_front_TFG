@@ -50,8 +50,23 @@ export class EditConsultaComponent implements OnInit {
       .getConsultasId(this.idConsulta)
       .subscribe((resp: Consulta) => {
         console.log(resp.porcentajeVariable);
-        resp.porcentajeVariable = this.form.get('porcentajeVariable')?.value;
+        if (this.form.get('porcentajeVariable')?.value !== '') {
+          resp.porcentajeVariable = this.form.get('porcentajeVariable')?.value;
+        }
+        if (this.form.get('duracion')?.value !== '') {
+          resp.duracion = this.form.get('duracion')?.value;
+        }
+        if (this.form.get('fechaConsulta')?.value !== '') {
+          resp.fechaConsulta = this.form.get('fechaConsulta')?.value;
+          resp.fechaConsulta = resp.fechaConsulta.concat(' 00:00:00');
+        }
+        if (this.form.get('precio')?.value !== '') {
+          resp.precio = this.form.get('precio')?.value;
+        }
         console.log(resp.porcentajeVariable);
+        console.log(resp.duracion);
+        console.log(resp.fechaConsulta);
+        console.log(resp.precio);
         //console.log(resp.fechaConsulta.split(' ')[0]);
         //resp.fechaConsulta = resp.fechaConsulta.split(' ')[0];
 
