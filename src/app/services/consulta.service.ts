@@ -51,9 +51,10 @@ export class ConsultaService {
     return this.http.delete(url, { responseType: 'text' });
   }
 
-  getConsultasId(id: number): Observable<Object> {
+  getConsultasId(id: number) {
     const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.GET_CONSULTA}/${id}`;
-    return this.http.get(url, httpOptions);
+    console.log(url);
+    return this.http.get<Consulta>(url, httpOptions);
   }
 
   /* getConsulta() {

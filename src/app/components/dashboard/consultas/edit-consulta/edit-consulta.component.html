@@ -1,1 +1,45 @@
-<p>edit-consulta works!</p>
+<div class="headerSeccion">
+    <mat-toolbar>
+        <span>Consulta</span>
+    </mat-toolbar>
+    <div class="formContainer">
+        <form class="form" [formGroup]="form" (ngSubmit)="editConsulta()">
+            <mat-form-field class="form-full-width" appearance="fill" color="accent">
+                <mat-label>Porcentaje Variable</mat-label>
+                <input matInput type="number" formControlName="porcentajeVariable">
+            </mat-form-field>
+            <table class="form-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-full-width" appearance="fill" color="accent">
+                            <mat-label>Duracion</mat-label>
+                            <input matInput type="text" formControlName="duracion">
+                            <mat-icon matSuffix color="primary" class="icon">person</mat-icon>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-full-width" appearance="fill" color="accent">
+                            <mat-label>Fecha Consulta</mat-label>
+                            <input matInput type="date" formControlName="fechaConsulta">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-full-width" appearance="fill" color="accent">
+                            <mat-label>precio</mat-label>
+                            <input matInput type="number" placeholder="60" formControlName="precio">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+            <div class="buttonContainer">
+                <button type="submit" [disabled]="form.invalid" class="aceptarbtn" mat-raised-button
+                    color="primary">Aceptar</button>
+                <button mat-raised-button routerLink="/dashboard/nutricionistas">Volver</button>
+            </div>
+        </form>
+    </div>
+</div>
