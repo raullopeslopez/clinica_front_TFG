@@ -43,7 +43,7 @@ export class FacturacionNutricionistaMensualComponent implements OnInit {
     .set('fechaMax', this.fechaMax)
     
     console.log('FECHAS: ' + this.param)
-    //this.http.get(`http://localhost:8080/nutricionistas/facturacion/${idNu}/mensual`, {params: this.param}).subscribe({
+    
     this.http.get(`http://localhost:8080/gestion/facturacion/nutricionista/${idNu}/mensual`, {params: this.param}).subscribe({
         next: data => {
         // Global saca pormenorizada por nutri entre fechas

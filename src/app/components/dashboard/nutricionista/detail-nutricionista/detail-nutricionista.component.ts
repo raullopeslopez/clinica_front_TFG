@@ -25,8 +25,7 @@ export class DetailNutricionistaComponent implements OnInit {
     'activo',
     'telefono',
     'dni',
-    'sueldo',
-    'facturacion'];
+    'sueldo'];
   dataSource!: MatTableDataSource<any>;
 
   dataSourceFacturacion!: MatTableDataSource<any>;
