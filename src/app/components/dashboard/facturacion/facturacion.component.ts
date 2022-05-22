@@ -16,7 +16,10 @@ export class FacturacionComponent implements OnInit {
   fechaMin : any
   fechaMax : any
 
+  // Elemento para almacenar la lógica para recuperar los datos
   dataSource!: MatTableDataSource<any>;
+
+  // Array que recoge las conlumnas empleadas por la tabla tipo Angular material
   displayedColumns: string[] = [
     'nutricionista',
     'minutos_trabajados',
@@ -34,11 +37,15 @@ export class FacturacionComponent implements OnInit {
     this.getFacturacionGlobal(this.fechaMin, this.fechaMax);
   }
 
+  // Metodo para recuperar el id del nutricionista y 
+  // almacenarlo como dato en la URL
   getNutricionista(idNutricionista: Number) {
     this.router.navigate(['/dashboard/facturacion-nutricionista-mensual', idNutricionista])
     console.log('ID NUTRI: ' + idNutricionista)
   }
 
+  // Metodo para recuperar la facturacion global segun las fechas
+  // recuperadas en el formulario de la vista
   getFacturacionGlobal(fMin: any, fMax:any) {
     this.fechaMin = fMin
     this.fechaMax = fMax

@@ -17,6 +17,7 @@ export class DetailNutricionistaComponent implements OnInit {
   selectNutricionista: any[] = []
   facturacionNutricionista: any[] = []
 
+  // Array que recoge las conlumnas empleadas por la tabla tipo Angular material
   displayedColumns: string[] = ['idNutricionista',
     'nombre',
     'apellidos',
@@ -26,6 +27,8 @@ export class DetailNutricionistaComponent implements OnInit {
     'telefono',
     'dni',
     'sueldo'];
+
+    // Elemento para almacenar la lógica para recuperar los datos
   dataSource!: MatTableDataSource<any>;
 
   dataSourceFacturacion!: MatTableDataSource<any>;
@@ -49,6 +52,7 @@ export class DetailNutricionistaComponent implements OnInit {
     this.cargarFacturacionNutricionista();
   }
 
+  // Metodo para cargar la informacion detallada del nutricionista
   cargarNutricionista() {
     this.nutricionistaService.getNutricionista(this.idNutricionista).subscribe({
       next: data => {
@@ -61,6 +65,9 @@ export class DetailNutricionistaComponent implements OnInit {
     })
   }
 
+  // Metodo para cargar la facturacion del nutricionista
+  // desde el dia 1 de mes hasta el dia de la
+  // ejecucion de este metodo
   cargarFacturacionNutricionista() {
     this.facturacionService.getFacturacionNutricionista(this.idNutricionista).subscribe({
       next: response => {

@@ -13,6 +13,8 @@ import { NutricionistaService } from 'src/app/services/nutricionista.service';
 export class AddNutricionistaComponent implements OnInit {
   
   newNutricionista: Nutricionista = new Nutricionista();
+
+  // Libreria que permite trabajar con la validacion del formulario
   form: FormGroup;
 
   constructor(
@@ -36,6 +38,7 @@ export class AddNutricionistaComponent implements OnInit {
     });
   }
 
+  // Metodo para añadir un nutricionista a la base de datos
   postNutricionista() {
     this.nutricionistaService.postNutricionista(this.form.value).subscribe({
       next: (data) => {
@@ -44,6 +47,8 @@ export class AddNutricionistaComponent implements OnInit {
       error: (err) => console.log('ERROR: ', err),
     });
 
+     // llamada al elemento del mensaje en pantalla tras la ejecucion
+    // exitosa del metodo
      this.snackBar.open('Nutricionista añadido con éxito', '', {
       duration: 1500,
       horizontalPosition: 'center',

@@ -12,6 +12,7 @@ import { FacturacionService } from 'src/app/services/facturacion.service';
 })
 export class AddFacturaComponent implements OnInit {
 
+  // Libreria que permite trabajar con la validacion del formulario
   form: FormGroup;
   constructor(private fb: FormBuilder, 
               private _facturacionService: FacturacionService,
@@ -28,6 +29,7 @@ export class AddFacturaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Metodo para añadir una facturacion
   addFactura() {
     const factura: Facturacion = {
       factura: this.form.value.factura,

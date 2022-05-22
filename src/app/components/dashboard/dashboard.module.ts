@@ -20,6 +20,7 @@ import { InfoConsultaComponent } from './consultas/info-consulta/info-consulta.c
 import { InfoConsultaFechaComponent } from './consultas/info-consulta-fecha/info-consulta-fecha.component';
 
 
+// Modulos importados de la API de Angular Material
 @NgModule({
   declarations: [
     DashboardComponent,

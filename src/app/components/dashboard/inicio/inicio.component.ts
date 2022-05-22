@@ -12,7 +12,7 @@ export class InicioComponent implements OnInit {
   facturacionMensual: any;
   facturacionDiaria: any;
 
-
+  // Array que recoge las conlumnas empleadas por la tabla tipo Angular material
   displayedColumns: string[] = [
     'nutricionista',
     'minutos_trabajados',
@@ -22,6 +22,7 @@ export class InicioComponent implements OnInit {
     'facturacion_neta_hora',
     'numero_consultas'];
 
+  // Elemento para almacenar la lógica para recuperar los datos  
   dataSource!: MatTableDataSource<any>;
   dataSourceDiario!: MatTableDataSource<any>;
 
@@ -32,6 +33,7 @@ export class InicioComponent implements OnInit {
     this.cargarFacturacionDiaria();
   }
 
+  //Metodo para mostrar la facturacion mensual
   cargarFacturacionMensual() { 
     this.facturaService.getFacturacionMensual().subscribe ({
       next: data => {
@@ -43,6 +45,7 @@ export class InicioComponent implements OnInit {
     })
  }
 
+ // Metodo para cargar la facturacion diaria
  cargarFacturacionDiaria() { 
   this.facturaService.getFacturacionDiaria().subscribe ({
     next: data => {

@@ -1,3 +1,8 @@
+// Modulos que agrupa todos los elementos de Angular Material
+// empleados en este proyecto
+// Sirve para ser utilizado por el resto de componentes de la 
+// aplicacion
+
 import { NgModule} from '@angular/core'
 import { CommonModule } from '@angular/common';
 

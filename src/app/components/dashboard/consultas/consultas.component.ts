@@ -14,6 +14,7 @@ import { ConsultaService } from 'src/app/services/consulta.service';
 export class ConsultasComponent implements OnInit {
   listConsultas: Consulta[] = [];
 
+  // Array que recoge las conlumnas empleadas por la tabla tipo Angular material
   displayedColumns: string[] = [
     'idConsulta',
     'fecha',
@@ -23,8 +24,11 @@ export class ConsultasComponent implements OnInit {
     'nutricionista',
     'opciones',
   ];
+  
+  // Elemento para almacenar la lógica para recuperar los datos
   dataSource!: MatTableDataSource<any>;
 
+  // Elementos de paginación y ordenamiento Angular Material
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -37,6 +41,7 @@ export class ConsultasComponent implements OnInit {
     this.cargarConsultas();
   }
 
+  // Método para cargar todas las consultas
   cargarConsultas() {
     this._consultaService.getAllConsultas().subscribe((response) => {
       this.listConsultas = response;
@@ -50,6 +55,7 @@ export class ConsultasComponent implements OnInit {
   //   this.dataSource.sort = this.sort;
   // }
 
+  // Método utlizado para filtrar los elementos de la tabla
   applyFilter($event: any) {
     this.dataSource.filter = $event.target.value;
   }
@@ -68,6 +74,8 @@ export class ConsultasComponent implements OnInit {
   })
   } */
 
+  // Método para eliminar la consulta.
+  // Devuelve la tabla despues de la operacion
   eliminarConsulta(idConsulta: number) {
     this._consultaService.deleteConsulta(idConsulta).subscribe({
       next: (response) => {

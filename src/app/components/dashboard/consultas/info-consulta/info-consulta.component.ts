@@ -16,6 +16,7 @@ export class InfoConsultaComponent implements OnInit {
   listConsultasfecha: Consulta[] = [];
   fecha: any;
 
+  // Array que recoge las conlumnas empleadas por la tabla tipo Angular material
   displayedColumns: string[] = [
     'idConsulta',
     'fecha',
@@ -29,6 +30,7 @@ export class InfoConsultaComponent implements OnInit {
     'cantidadConsultas',
   ];
 
+  // Array que recoge las conlumnas empleadas por la tabla tipo Angular material
   displayedColumnsfecha: string[] = [
     'idConsulta',
     'fecha',
@@ -42,6 +44,7 @@ export class InfoConsultaComponent implements OnInit {
     'cantidadConsultas',
   ];
 
+  // Elemento para almacenar la lógica para recuperar los datos
   dataSource!: MatTableDataSource<any>;
   dataSourcefecha!: MatTableDataSource<any>;
 
@@ -51,6 +54,8 @@ export class InfoConsultaComponent implements OnInit {
     private router: Router
   ) {}
 
+   // El método que inicia con el componente contiene 
+  // el la lógica para recuperar las consultas por nutricionista
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
@@ -64,6 +69,7 @@ export class InfoConsultaComponent implements OnInit {
       });
   }
 
+  // Método para cargar las consultas
   cargarConsultas() {
     this._consultaService.getAllConsultas().subscribe((response) => {
       this.listConsultas = response;
@@ -78,6 +84,9 @@ export class InfoConsultaComponent implements OnInit {
     //console.log(dateString);
   }
 
+  // Metodo para controlar guardar las fechas
+  // para poder recuperar las consultas
+  // con dicho dato
   buscarxfecha() {
     console.log(this.fecha);
     const fec = '2022-05-13 02:00:00';

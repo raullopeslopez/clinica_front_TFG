@@ -13,7 +13,13 @@ import { NutricionistaService } from 'src/app/services/nutricionista.service';
 export class NutricionistaComponent implements OnInit {
   
   listNutricionistas: Nutricionista[] = [];
-  displayedColumns: string[] = ['idNutricionista','nombre', 'apellidos', 'telefono',  'opciones'];
+
+  // Array que recoge las conlumnas empleadas por la tabla tipo Angular material
+  displayedColumns: string[] = ['idNutricionista',
+                                'nombre', 
+                                'apellidos', 
+                                'telefono',  
+                                'opciones'];
   
 
   constructor(private nutricionistaService: NutricionistaService,
@@ -24,20 +30,26 @@ export class NutricionistaComponent implements OnInit {
     this.cargarNutricionistas();
   }
 
+  // Metodo para mostrar todos los nutricionistas
   cargarNutricionistas() {
     this.nutricionistaService.getAllNutricionistas().subscribe (response => {
     this.listNutricionistas = response;
     })
   }
   
+  // Metodo para registrar el id del nutricionista
+  // y pasarlo al siguiente componente
   getNutricionista(idNutricionista: Number) {
     this.router.navigate(['/dashboard/detail-nutricionista', idNutricionista])
   }
 
+  // Metodo para registrar el id del nutricionista
+  // y pasarlo al siguiente componente
   editNutricionista(idNutricionista: Number) {
     this.router.navigate(['/dashboard/edit-nutricionista', idNutricionista])
   }
 
+  // Metodo para eliminar a un nutricionista
   eliminarNutricionista(idNutricionista : number) {
     this.nutricionistaService.deleteNutricionista(idNutricionista).subscribe ({
       next: response => {
@@ -48,6 +60,8 @@ export class NutricionistaComponent implements OnInit {
         this.cargarNutricionistas()
         console.log ('ERROR: ', err)}
     })
+    // llamada al elemento del mensaje en pantalla tras la ejecucion
+    // exitosa del metodo
     this.snackBar.open('Nutricionista eliminado con éxito', '', {
       duration: 1500,
       horizontalPosition: 'center',

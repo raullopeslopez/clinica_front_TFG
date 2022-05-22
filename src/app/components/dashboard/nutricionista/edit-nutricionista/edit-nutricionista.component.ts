@@ -14,6 +14,7 @@ export class EditNutricionistaComponent implements OnInit {
   idNutricionista: number;
   nutricionista: Nutricionista;
 
+  // Libreria que permite trabajar con la validacion del formulario
   form: FormGroup;
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +39,7 @@ export class EditNutricionistaComponent implements OnInit {
     });
   }
 
+  // Metodo para editar un nutricionista
   editNutricionista() {
     this.nutricionistaService.putNutricionista(this.form.value).subscribe({
       next: (data) => {
@@ -47,6 +49,8 @@ export class EditNutricionistaComponent implements OnInit {
       error: (err) => console.log('ERROR: ', err),
     });
 
+    // llamada al elemento del mensaje en pantalla tras la ejecucion
+    // exitosa del metodo
     this.snackBar.open('Nutricionista editado con éxito', '', {
       duration: 1500,
       horizontalPosition: 'center',

@@ -11,7 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SharedModulesModule } from './components/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 
-
+// Modulo principal de la aplicacion
+// Integra el componte del Login
 @NgModule({
   declarations: [
     AppComponent,

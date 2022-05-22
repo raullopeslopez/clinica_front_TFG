@@ -14,6 +14,7 @@ export class InfoConsultaFechaComponent implements OnInit {
   fecha: string;
   listConsultas: Consulta[] = [];
 
+  // Array que recoge las conlumnas empleadas por la tabla tipo Angular material
   displayedColumns: string[] = [
     'idConsulta',
     'fecha',
@@ -27,6 +28,7 @@ export class InfoConsultaFechaComponent implements OnInit {
     'cantidadConsultas',
   ];
 
+  // Elemento para almacenar la lógica para recuperar los datos
   dataSource!: MatTableDataSource<any>;
 
   constructor(
@@ -35,6 +37,9 @@ export class InfoConsultaFechaComponent implements OnInit {
     private router: Router
   ) {}
 
+  // El método que inicia con el componente contiene 
+  // el la lógica para recuperar las consultas por nutricionista
+  // y fecha
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.fecha = this.route.snapshot.params['fecha'];
