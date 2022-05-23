@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Bono } from '../models/bono';
+import { Cliente } from '../models/cliente';
 import { Consulta } from '../models/consulta';
 import { URLS_ADMINISTRADOR } from '../shared/constants';
 const httpOptions = {
@@ -42,7 +44,8 @@ export class ConsultaService {
 
   postConsulta(consulta: Consulta): Observable<Object> {
     const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.POST_CONSULTA}`;
-    return this.http.put(url, consulta, { responseType: 'text' });
+    console.log(url);
+    return this.http.post(url, consulta, { responseType: 'text' });
   }
 
   deleteConsulta(idConsulta: number): Observable<Object> {
@@ -51,9 +54,22 @@ export class ConsultaService {
     return this.http.delete(url, { responseType: 'text' });
   }
 
-  getConsultasId(id: number): Observable<Object> {
+  getConsultasId(id: number) {
     const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.GET_CONSULTA}/${id}`;
-    return this.http.get(url, httpOptions);
+    console.log(url);
+    return this.http.get<Consulta>(url, httpOptions);
+  }
+
+  getAllBonos(): Observable<Bono[]> {
+    const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.GET_BONOS}`;
+    console.log(url);
+    return this.http.get<Bono[]>(url, httpOptions);
+  }
+
+  getAllClientes(): Observable<Cliente[]> {
+    const url = `${environment.URL_BASE}${URLS_ADMINISTRADOR.GET_CLIENTES}`;
+    console.log(url);
+    return this.http.get<Cliente[]>(url, httpOptions);
   }
 
   /* getConsulta() {
