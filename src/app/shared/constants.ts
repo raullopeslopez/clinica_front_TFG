@@ -13,6 +13,8 @@ export const URLS_ADMINISTRADOR = {
   POST_CONSULTA: 'gestion/consultas/alta',
   REMOVE_CONSULTA: 'gestion/consultas/eliminar',
   GET_CONSULTA: 'gestion/consulta',
+  GET_BONOS: 'gestion/bonos',
+  GET_CLIENTES: 'gestion/clientes',
 };
 
 // export const URLS_ADMINISTRADOR = {
