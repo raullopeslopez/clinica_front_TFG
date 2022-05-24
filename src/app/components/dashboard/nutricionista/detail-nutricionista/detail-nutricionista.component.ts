@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { Nutricionista } from 'src/app/models/nutricionista';
 import { FacturacionService } from 'src/app/services/facturacion.service';
 
 import { NutricionistaService } from 'src/app/services/nutricionista.service';

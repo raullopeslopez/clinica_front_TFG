@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+    margin-top: 1%;
+  }
+  
+  .distribucionHeader{
+    flex: 1 1 auto;
+  }
+  .cardContainer {
+    margin-top: 1%;
+  }
+
+  .cardTitle{
+    font-size: 130%;
+  }
+  .cardSub {
+    padding-top: 1%;
+    font-size: 110%;
+  } 
+
+  .mat-form-field {
+    margin-top: 1%;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  
+  

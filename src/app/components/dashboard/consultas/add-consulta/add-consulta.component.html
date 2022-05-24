@@ -1,66 +1,50 @@
 <div class="headerSeccion">
   <mat-toolbar>
-    <span>Nutricionistas</span>
+    <span>Añadir Consulta</span>
+    <div class="distribucionHeader"></div> 
+    <mat-icon matSuffix color="accent" routerLink="/dashboard/consultas" matTooltip="Consultas" class="pointer">arrow_circle_left</mat-icon> 
   </mat-toolbar>
   <div class="formContainer">
     <form class="form" [formGroup]="form" (ngSubmit)="postConsulta()">
       <mat-form-field class="form-full-width" appearance="fill" color="accent">
         <mat-label>Duracion</mat-label>
         <input matInput type="number" formControlName="duracion">
+        <mat-icon matSuffix color="primary" class="icon">access_time</mat-icon>
       </mat-form-field>
-      <table class="form-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="form-full-width" appearance="fill" color="accent">
-              <mat-label>Fecha Consulta</mat-label>
-              <input matInput type="date" formControlName="fechaConsulta">
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="form-full-width" appearance="fill" color="accent">
-              <mat-label>Variable %</mat-label>
-              <input matInput type="number" placeholder="variable" formControlName="porcentajeVariable">
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="form-full-width" appearance="fill" color="accent">
-              <mat-label>Precio</mat-label>
-              <input matInput formControlName="precio">
-              <mat-icon matSuffix color="primary" class="icon">euro_symbol</mat-icon>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Nutricionista</p>
-            <select formControlName="nutricionista">
-              <option [ngValue]="null" disabled>Seleccionar nutricionista</option>
-              <option *ngFor="let nutri of listNutricionistas" [ngValue]="nutri">{{nutri.nombre}}
-              </option>
-            </select>
-          </td>
-          <td>
-            <p>Bono</p>
-            <select formControlName="bono">
-              <option [ngValue]="null" disabled>Seleccionar bono</option>
-              <option *ngFor="let bonos of listBono" [ngValue]="bonos">{{bonos.cantidadConsultas}}
-              </option>
-            </select>
-          </td>
-          <td>
-            <p>Cliente</p>
-            <select formControlName="cliente">
-              <option [ngValue]="null" disabled>Seleccionar cliente</option>
-              <option *ngFor="let client of listCliente" [ngValue]="client">{{client.nombre}}
-              </option>
-            </select>
-          </td>
-        </tr>
-      </table>
+      <mat-form-field class="form-full-width" appearance="fill" color="accent">
+        <mat-label>Fecha Consulta</mat-label>
+        <input matInput type="date" formControlName="fechaConsulta">
+      </mat-form-field>
+      <mat-form-field class="form-full-width" appearance="fill" color="accent">
+        <mat-label>Variable </mat-label>
+        <input matInput type="number" placeholder="variable" formControlName="porcentajeVariable">
+        <mat-icon matSuffix color="primary" class="icon">percentage</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="form-full-width" appearance="fill" color="accent">
+        <mat-label>Precio</mat-label>
+        <input matInput formControlName="precio">
+        <mat-icon matSuffix color="primary" class="icon">euro_symbol</mat-icon>
+      </mat-form-field>
+      <mat-card>
+        <mat-card-subtitle class="cardSub">Nutricionista</mat-card-subtitle>
+        <select formControlName="nutricionista">
+          <option [ngValue]="null" disabled>Seleccionar nutricionista</option>
+          <option *ngFor="let nutri of listNutricionistas" [ngValue]="nutri">{{nutri.nombre}}
+          </option>
+        </select>
+        <mat-card-subtitle class="cardSub">Bono</mat-card-subtitle>
+        <select formControlName="bono">
+          <option [ngValue]="null" disabled>Seleccionar bono</option>
+          <option *ngFor="let bonos of listBono" [ngValue]="bonos">{{bonos.cantidadConsultas}}
+          </option>
+        </select>
+        <mat-card-subtitle class="cardSub">Cliente</mat-card-subtitle>
+        <select formControlName="cliente">
+          <option [ngValue]="null" disabled>Seleccionar cliente</option>
+          <option *ngFor="let client of listCliente" [ngValue]="client">{{client.nombre}}
+          </option>
+        </select>
+      </mat-card>
       <div class="buttonContainer">
         <button type="submit" [disabled]="form.invalid" class="aceptarbtn" mat-raised-button
           color="primary">Aceptar</button>

@@ -3,8 +3,11 @@ table {
   margin-top: 1%;
 }
 
-.pointer {
-  cursor: pointer;
+.distribucionHeader{
+  flex: 1 1 auto;
+}
+.cardContainer {
+  margin-top: 2%;
 }
 
 .mat-form-field {
@@ -13,6 +16,4 @@ table {
   width: 100%;
 }
 
-.botonAdd {
-  flex: 1 1 auto;
-}
+

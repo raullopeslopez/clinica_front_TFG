@@ -6,11 +6,48 @@
     width: 80%;
 }
 
-img {
-    width: 30%;
-    height: 40%;
-}
-
 .aceptarbtn {
     margin-right: 5%;
 }
+.formContainer {
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .form-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+  .icon {
+    font-size: 17px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 2%;
+  }
+  
+  .aceptarbtn {
+    margin-right: 2%;
+  }
+  
+  .cardSub {
+    padding-top: 2%;
+  } 
+  .distribucionHeader{
+    flex: 1 1 auto;
+  }

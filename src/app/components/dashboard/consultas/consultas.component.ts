@@ -55,10 +55,7 @@ export class ConsultasComponent implements OnInit {
   //   this.dataSource.sort = this.sort;
   // }
 
-  // Método utlizado para filtrar los elementos de la tabla
-  applyFilter($event: any) {
-    this.dataSource.filter = $event.target.value;
-  }
+
 
   /*
   eliminarConsulta(index: number) {

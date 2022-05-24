@@ -1,17 +1,12 @@
 <div class="headerSeccion">
   <mat-toolbar>
     <span>Consultas</span>
-    <div class="botonAdd"></div>
-    <button mat-raised-button color="primary" routerLink="/dashboard/add-consulta">Añadir</button>
+    <div class="distribucionHeader"></div> 
+    <mat-icon matSuffix color="accent" routerLink="/dashboard/add-consulta" matTooltip="Añadir consulta" class="pointer">add_circle</mat-icon>   
+    <!-- <button mat-raised-button color="primary" routerLink="/dashboard/add-consulta">Añadir</button>-->
   </mat-toolbar>
 
   <div *ngIf="listConsultas.length > 0">
-    <mat-form-field>
-      <mat-label>Filtro</mat-label>
-      <input matInput (keyup)="applyFilter($event)" #input autocomplete="off">
-    </mat-form-field>
-    <div class="mat-elevation-z8">
-    </div>
 
     <table mat-table [dataSource]="dataSource" matSort>
       <!-- Columna Usuario  -->
