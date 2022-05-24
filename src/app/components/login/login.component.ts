@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -9,48 +11,48 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
-  loading = false;
+  form: any = {
+    username: null,
+    password: null,
+  };
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+
   constructor(
-    private fb: FormBuilder,
-    private _snackBar: MatSnackBar,
-    private router: Router
-  ) {
-    this.form = this.fb.group({
-      usuario: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-  }
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService
+  ) {}
 
-  ngOnInit(): void {}
-
-  ingresar() {
-    const usuario = this.form.value.usuario;
-    const password = this.form.value.password;
-
-    console.log(usuario);
-    console.log(password);
-
-    if (usuario == '1234' && password == '1234') {
-      this.processLoading();
-    } else {
-      this.error();
-      this.form.reset();
+  ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
     }
   }
 
-  error() {
-    this._snackBar.open('Usuario o constraseña incorrectos', '', {
-      duration: 5000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-    });
+  onSubmit(): void {
+    const { username, password } = this.form;
+
+    this.authService.login(username, password).subscribe(
+      (data) => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().roles;
+        this.reloadPage();
+      },
+      (err) => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+      }
+    );
   }
 
-  processLoading() {
-    this.loading = true;
-    setTimeout(() => {
-      this.router.navigate(['dashboard']);
-    }, 1500);
+  reloadPage(): void {
+    window.location.reload();
   }
 }
